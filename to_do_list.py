@@ -20,3 +20,7 @@ class ToDoList:
             del self.tasks[index]
         except IndexError:
             return False
+
+    def show_tasks(self):
+        for i, task in enumerate(self.tasks):
+            print(f"{i}- {task}")
