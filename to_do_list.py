@@ -3,3 +3,8 @@ class Task:
         self.title = title
         self.describtion = describtion
         self.pripriority = priority
+
+
+class ToDoList:
+    def __init__(self):
+        self.tasks = []
