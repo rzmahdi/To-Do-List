@@ -1,3 +1,5 @@
+import csv
+
 class Task:
     def __init__(self, title, describtion, priority):
         self.title = title
@@ -24,3 +26,9 @@ class ToDoList:
     def show_tasks(self):
         for i, task in enumerate(self.tasks):
             print(f"{i}- {task}")
+
+    def load_tasks(self, addres="./tasks.csv"):
+        with open(addres, 'r') as data:
+            reader = csv.reader(data)
+            for line in reader:
+                self.tasks.append(line)
