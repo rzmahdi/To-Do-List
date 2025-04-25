@@ -14,3 +14,9 @@ class ToDoList:
 
     def add_task(self, task):
         self.tasks.append(task)
+
+    def remove_task(self, index):
+        try:
+            del self.tasks[index]
+        except IndexError:
+            return False
