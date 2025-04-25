@@ -24,8 +24,11 @@ class ToDoList:
             return False
 
     def show_tasks(self):
-        for i, task in enumerate(self.tasks):
-            print(f"{i}- {task}")
+        if self.tasks:
+            for i, task in enumerate(self.tasks):
+                print(f"{i}- {task}")
+        else:
+            print("there is no task yet.")
 
     def load_tasks(self, addres="./tasks.csv"):
         with open(addres, 'r') as data:
