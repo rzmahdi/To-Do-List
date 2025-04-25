@@ -20,6 +20,7 @@ class ToDoList:
     def remove_task(self, index):
         try:
             del self.tasks[index]
+            return True
         except IndexError:
             return False
 
