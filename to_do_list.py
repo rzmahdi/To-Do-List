@@ -28,8 +28,10 @@ class ToDoList:
         if self.tasks:
             for i, task in enumerate(self.tasks):
                 print(f"[{i}] {task}")
+            return True
         else:
             print("there is no task yet.")
+            return False
 
     def load_tasks(self, addres="./tasks.csv"):
         try:
@@ -63,3 +65,88 @@ class ToDoList:
         except Exception as e:
             print(e)
             return False
+
+
+if __name__ == "__main__":
+    todo = ToDoList()
+
+    while True:
+        print("*** To Do List ***")
+        print("1. add task")
+        print("2. remove task")
+        print("3. show all tasks")
+        print("4. load tasks")
+        print("5. save tasks")
+        print("6. Exit")
+        user_choice = input("enter your choise: ")
+
+
+        # add task
+        if user_choice == '1':
+            print()
+            task_title = input("title: ")
+            task_description = input("description: ")
+            task_priority = input("priority [low, medium, high]: ")
+
+            task = Task(task_title, task_description, task_priority)
+            todo.add_task(task)
+
+            print()
+            todo.show_tasks()
+            print()
+
+
+        # remove task
+        elif user_choice == '2':
+            print()
+
+            if todo.show_tasks():
+                task_index = int(input("task id: "))
+                if todo.remove_task(task_index):
+                    print(f"task [{task_index}] properly remove.")
+                else:
+                    print(f"task id [{task_index}] is out of range!")
+
+            print()
+
+
+        # show tasks
+        elif user_choice == '3':
+            print()
+            todo.show_tasks()
+            print()
+
+
+        # load tasks
+        elif user_choice == '4':
+            print()
+
+            print("example.csv")
+            file_addres = input("file addres: ")
+            if todo.load_tasks(file_addres):
+                todo.show_tasks()
+            
+            print()
+
+
+        # save tasks
+        elif user_choice == '5':
+            print()
+
+            print("example.csv")
+            file_addres = input("file addres: ")
+            if todo.save_tasks(file_addres):
+                print("file save properly.")
+
+            print()
+
+
+        # Exit
+        elif user_choice == '6':
+            break
+
+
+        else:
+            print()
+            print("choose between [1-6] !!! ")
+            print()
