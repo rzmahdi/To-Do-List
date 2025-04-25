@@ -34,4 +34,5 @@ class ToDoList:
         with open(addres, 'r') as data:
             reader = csv.reader(data)
             for line in reader:
-                self.tasks.append(line)
+                task = Task(line[0], line[1], line[2])
+                self.tasks.append(task)
