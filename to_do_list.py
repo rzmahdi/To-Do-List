@@ -26,7 +26,7 @@ class ToDoList:
     def show_tasks(self):
         if self.tasks:
             for i, task in enumerate(self.tasks):
-                print(f"{i}- {task}")
+                print(f"[{i}] {task}")
         else:
             print("there is no task yet.")
 
