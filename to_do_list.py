@@ -37,3 +37,9 @@ class ToDoList:
             for line in reader:
                 task = Task(line[0], line[1], line[2])
                 self.tasks.append(task)
+
+    def save_tasks(self, addres="./tasks.csv"):
+        with open(addres, "w") as file:
+            writer = csv.writer(file)
+            for task in self.tasks:
+                writer.writerow([task.title, task.describtion, task.priority])
