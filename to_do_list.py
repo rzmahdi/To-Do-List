@@ -101,11 +101,16 @@ if __name__ == "__main__":
             print()
 
             if todo.show_tasks():
-                task_index = int(input("task id: "))
-                if todo.remove_task(task_index):
-                    print(f"task [{task_index}] properly remove.")
+                print()
+                try:
+                    task_index = int(input("task id: "))
+                except:
+                    print("\nEnter a valid index!")
                 else:
-                    print(f"task id [{task_index}] is out of range!")
+                    if todo.remove_task(task_index):
+                        print(f"\ntask [{task_index}] properly remove.")
+                    else:
+                        print(f"\ntask id [{task_index}] is out of range!")
 
             print()
 
