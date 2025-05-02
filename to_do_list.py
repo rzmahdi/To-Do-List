@@ -58,10 +58,6 @@ class ToDoList:
                     writer.writerow([task.title, task.describtion, task.priority])
             return True
         
-        except FileNotFoundError:
-            print(f"No such file: {addres}")
-            return False
-        
         except Exception as e:
             print(e)
             return False
@@ -140,6 +136,7 @@ if __name__ == "__main__":
 
             print("example.csv")
             file_addres = input("file addres: ")
+
             if todo.save_tasks(file_addres):
                 print("file save properly.")
 
