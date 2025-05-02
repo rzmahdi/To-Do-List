@@ -136,9 +136,11 @@ if __name__ == "__main__":
 
             print("example.csv")
             file_addres = input("file addres: ")
-
-            if todo.save_tasks(file_addres):
-                print("file save properly.")
+            if file_addres.endswith(".csv"):
+                if todo.save_tasks(file_addres):
+                    print("file save properly.")
+            else:
+                print("it must be .csv file!")
 
             print()
 
